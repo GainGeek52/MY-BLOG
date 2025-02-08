@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is DeepSeek the Best AI? A Game-Changer or Just Hype?</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+
+<body>
+    <header>
+        <img src="images/headerLogo.jpg" alt="GainGeek Writes Logo">
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h2>Is DeepSeek the Best AI? A Game-Changer or Just Hype?</h2>
+            <p>This is my first blog, so let’s dive in. After DeepSeek launched, my friend introduced me to it, and we had an in-depth discussion about this AI. He mentioned that it is open-source, which intrigued me. I asked, <em>“Why would open-source be beneficial for them?”</em></p>
+            
+            <p>Open-source software (OSS) refers to programs whose source code is freely accessible, allowing anyone to view, modify, and distribute it. This is a significant advantage. Moreover, DeepSeek was developed with a budget of just $100 million—remarkably low compared to OpenAI’s massive expenditures. This highlights the brilliance of the Chinese scientists and software engineers who crafted an affordable yet highly efficient AI with impressive performance in generating responses.</p>
+            
+            <p>DeepSeek has swiftly carved out a position in the AI market, attracting the attention of major tech giants. While it currently stands out, the AI industry is evolving at a rapid pace, and maintaining dominance will be challenging.</p>
+            
+            <p>After our conversation, news about the chatbot exploded overnight, creating a global frenzy. The meme culture played a significant role in this hype—people now consume information in an entertaining, lighthearted manner. The influence of memes extends even to financial markets.</p>
+            
+            <p>DeepSeek’s impact went beyond just the AI space—it triggered a market shock. Reports indicated that DeepSeek’s rise led to turbulence in the U.S. stock market. Notably, Nvidia shares plummeted by <strong>18%</strong>, marking their largest drop since March 2020. This staggering <strong>$560 billion</strong> loss surpassed its previous record—a <strong>9% decline in September</strong>, which wiped out approximately <strong>$278 billion</strong> in market value, according to Bloomberg.</p>
+            
+            <p>While DeepSeek’s rise has been extraordinary, the AI landscape is dynamic. Whether it remains at the top or gets overshadowed by new innovations is a question only time will answer.</p>
+        </article>
+        
+        <div id="article-container"></div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const articleContainer = document.getElementById('article-container');
+
+            fetch('articles.json')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.articles && data.articles.length > 0) {
+                        data.articles.forEach(article => {
+                            const articleHTML = `
+                                <article>
+                                    <h2>${article.title}</h2>
+                                    <div class="article-meta">
+                                        <span class="article-date">${article.date}</span>
+                                    </div>
+                                    ${article.content.map(paragraph => `<p>${paragraph}</p>`).join('')}
+                                    <div class="article-source">
+                                        <a href="${article.source}" target="_blank" class="source-link">
+                                            Read full article on Hindustan Times
+                                        </a>
+                                    </div>
+                                </article>
+                            `;
+                            articleContainer.innerHTML += articleHTML;
+                        });
+                    } else {
+                        articleContainer.innerHTML = `<p class="error">No articles found.</p>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading articles:', error);
+                    articleContainer.innerHTML = `<p class="error">Failed to load articles. Please try again later.</p>`;
+                });
+        });
+    </script>
+
+    <footer class="footer-dark">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Development</a></li>
+                        <li><a href="#">Tech Trends</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>GainGeek Writes</h3>
+                    <p>Sharing insights on technology, coding, and management perspectives. Join the discussion and stay informed!</p>
+                </div>
+            </div>
+            <p class="copyright">© 2024 GainGeek Writes</p>
+        </div>
+    </footer>
+</body>
+</html>

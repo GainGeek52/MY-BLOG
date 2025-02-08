@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GainGeek Writes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <img src="images/headerLogo.jpg" alt="GainGeek Writes Logo">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Explore, Learn, and Grow!</h2>
+            <p>Discover insightful articles, expert coding tips, and real-world projects. Stay updated with the latest
+                trends in programming, web development, and software engineering.</p>
+
+            <h3>📌 Featured Post</h3>
+            <p><a href="firstBlog.html">"Is DeepSeek the Best AI? A Game-Changer or Just Hype?"</a></p>
+
+            <button onclick="location.href='firstBlog.html'">Explore Blogs</button>
+            <button onclick="location.href='subscribe.html'">Subscribe for Updates</button>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hey there! I'm a Computer Science student at NMU University, always curious and learning new things.
+                While my college isn't a Tier-1 institution, my passion for tech and management drives me to explore
+                beyond textbooks.</p>
+
+            <p>I created this blog to share my perspectives on the latest tech trends, real-world applications, and
+                industry shifts. I'm not a coding enthusiast, but I enjoy analyzing how technology impacts businesses,
+                workflows, and everyday life.</p>
+
+            <p>From tech innovations to trending discussions, this blog is my space to document insights and thoughts.
+                Not a pro—just a learner striving to improve every day!</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Want to connect? Feel free to reach out on my socials!</p>
+
+            <div class="social-buttons">
+                <a href="https://x.com/Gain_geek_52" class="x-button" target="_blank">
+                    <i class="fab fa-x-twitter"></i> Follow on X
+                </a>
+                <a href="https://github.com/GainGeek52" class="github-button" target="_blank">
+                    <i class="fab fa-github"></i> View GitHub
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-dark">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Development</a></li>
+                        <li><a href="#">Tech Trends</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="index.html">Projects</a></li>
+                        <li><a href="contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>GainGeek Writes</h3>
+                    <p>Sharing insights on technology, coding, and management perspectives. Join the discussion and stay
+                        informed!</p>
+                </div>
+            </div>
+            <p class="copyright">© 2024 GainGeek Writes</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function (event) {
+                event.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        fetch('articles.json')
+            // Ensure correct relative path
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+
+    </script>
+</body>
+
+</html>
